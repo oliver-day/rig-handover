@@ -16,7 +16,7 @@ Read first: `docs/vision.md`, `docs/styleguide.md`. Decisions: `docs/adr/`.
    `docs/plans/done/`.
 2. The plan is split into GitHub issues: skill `plan-to-issues` (`.agents/skills/`). A human
    reviews the split before anything is published. GitHub issues out of reach: files in
-   `docs/issues/` (ADR 0004).
+   `docs/issues/` (ADR 0004). Every issue carries the shape under "Issue shape" below.
 3. Issues are worked by workers, one issue per worker, each on its own branch or worktree.
    Pick the model per issue: the strongest for logic, a cheaper one for views and tests.
 4. A worker closes its issue with a closing comment, exactly this shape:
@@ -29,6 +29,27 @@ Read first: `docs/vision.md`, `docs/styleguide.md`. Decisions: `docs/adr/`.
 
 5. An issue is closed only when its "Done when" holds. If it can't hold yet, leave it open and
    say what it waits on.
+
+## Issue shape
+
+Every issue split from a plan opens with its source line and carries the plan's label,
+`plan:<plan name>`. The body, in this order (the human chose it for morning-digest):
+
+```
+Source: plan.md § <n>
+
+## Scope
+<what to do, from the plan>
+
+## Done when
+<the plan's line, word for word>
+
+## Blocked by
+<#n, or —; say what else it waits on, such as a review>
+```
+
+An issue that waits on someone outside (a reviewer) stays open until they confirm, and the
+clean-up after it is blocked by it.
 
 ## Skills
 

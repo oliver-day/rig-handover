@@ -15,12 +15,14 @@ in a shell this agent can run.
    One issue per unit of work.
 3. **Stop and show the table to the human.** Publish nothing until they approve it.
 4. Ask the human what every issue here must carry (fields, labels, wording), unless it is
-   already written down in this session or in the repo.
+   already written down in this session or in the repo. It is: "Issue shape" in AGENTS.md.
 5. Create each issue in dependency order, so blocked-by can cite real numbers:
 
    ```sh
-   gh issue create --title "<title>" --body-file <tmp.md>
+   gh issue create --title "<title>" --body-file <tmp.md> --label plan:<plan name>
    ```
+
+   One `gh` call at a time, a few seconds apart: GitHub limits content made quickly.
 
 6. Record every issue URL from gh's output (not from memory) and reply with the list.
 
