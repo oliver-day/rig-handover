@@ -74,7 +74,7 @@ describe('GET /digest/:night', () => {
   it('still renders and reports lines that did not parse', async () => {
     const res = await app().request('/digest/2026-01-03');
     expect(res.status).toBe(200);
-    expect(await res.text()).toContain("didn't parse");
+    expect(await res.text()).toContain("did not parse");
   });
 });
 
